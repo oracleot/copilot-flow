@@ -35,17 +35,14 @@ This repository provides a complete product development pipeline using GitHub Co
 
 1. **Clone this repository** to your project workspace:
    ```bash
-   git clone https://github.com/your-username/copilot-flow.git your-project-name
+   git clone https://github.com/oracleot/copilot-flow.git your-project-name
+   
    cd your-project-name
    ```
 
 2. **Ensure GitHub Copilot is active** in VS Code
 
-3. **Enable prompt files** in VS Code settings (usually enabled by default):
-   - The prompt files in `.github/prompts/` will be automatically detected
-   - No additional configuration needed
-
-4. **Optional: Set up Sequential Thinking MCP** for enhanced capabilities
+3. **Optional: Set up Sequential Thinking MCP** for enhanced capabilities
 
 ## 🔄 Workflow Overview
 
@@ -141,11 +138,11 @@ Convert the complete product context into sprint-ready Agile tasks:
 Execute individual development tasks with structured guidance:
 
 ```
-/implement
+/implement {add task to context}
 ```
 
 **What it does**:
-- Takes a specific task from the Epic files
+- Takes a specific task from the Epic files (added to Context)
 - Provides structured implementation workflow
 - Ensures quality standards and testing
 - Generates proper documentation and commit messages
@@ -177,18 +174,18 @@ copilot-flow/
 
 ### Starting a New Product
 ```
-1. /consult              → Discover business requirements
-2. /requirements         → Generate Agile Epic structure  
-3. /architecture         → Design technical foundation
+1. /consult             → Discover business requirements
+2. /requirements        → Generate Agile Epic structure  
+3. /architecture        → Design technical foundation
 4. /tasks               → Create development backlog
 5. /implement           → Build individual features
 ```
 
 ### Adding Features to Existing Product
 ```
-1. /consult              → Understand new feature requirements
-2. Update existing docs with new consultation
-3. /architecture         → Evolve architecture for new features
+1. /consult             → Understand new feature requirements
+2. /requirements        → Update existing docs with new consultation
+3. /architecture        → Evolve architecture for new features
 4. /tasks               → Generate tasks for new Epics
 5. /implement           → Build new functionality
 ```
@@ -206,7 +203,7 @@ copilot-flow/
 ### Documentation Lookup (`/lookup-doc`)
 Search and retrieve relevant documentation using Context7 MCP:
 ```
-/lookup-doc on how do I install shadcn/ui
+/lookup-doc on how to install shadcn/ui for this project
 ```
 
 ### Complex Problem Solving (`/think`)  
@@ -231,21 +228,6 @@ Use sequential thinking for breaking down complex challenges:
 - All team members should use the same workflow system
 - Version control all generated artifacts
 - Regular review and refinement of workflow outputs
-
-## 🤝 Contributing
-
-This is an open-source workflow system designed for the community:
-
-1. **Fork the repository**
-2. **Improve prompt files** based on your experience
-3. **Share examples** of successful workflows
-4. **Submit pull requests** with enhancements
-
-### Areas for Contribution
-- Additional workflow stages (e.g., testing, deployment)
-- Industry-specific prompt variations
-- Integration with other development tools
-- Example projects demonstrating the full workflow
 
 ## 📚 Additional Resources
 
