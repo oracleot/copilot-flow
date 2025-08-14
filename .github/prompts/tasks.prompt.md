@@ -455,32 +455,32 @@ Create `docs/tasks/epic-index.md` with:
 
 **⚠️ CRITICAL: Get up-to-date setup documentation first**
 
-**Context7 Commands to Execute in VSCode**:
+**VSCode MCP Commands**:
 ```
-@context7 Next.js 14 project setup and App Router configuration
-@context7 PostgreSQL latest installation and setup guide
-@context7 [specific dependency] installation with [framework] integration
+@context7 Next.js 14 project setup App Router
+@context7 PostgreSQL installation setup guide
+@context7 [specific dependency] [framework] integration
 ```
 
 ## Project Setup Instructions
 
 ### Phase 1: Documentation Review
-1. **Execute Context7 MCP Queries**: Run all required @context7 commands in VSCode
-2. **Architecture Review**: Review architecture.md headers [list specific headers] for project structure requirements
-3. **Version Verification**: Confirm Context7 documentation matches architecture technology versions
+1. **Execute Context7 MCP Commands**: Run required @context7 commands in VSCode MCP
+2. **Architecture Review**: Review architecture.md headers [list specific headers] for project structure
+3. **Pattern Reconciliation**: Align Context7 current practices with architecture requirements
 
 ### Phase 2: Installation Process
 **Follow Context7 documentation for current installation process, then apply architecture requirements:**
 
 ```bash
-# Step 1: Initialize project (from Context7 current documentation)
+# Step 1: Get current setup documentation
+# Execute: @context7 [technology] setup guide
+
+# Step 2: Initialize following current best practices
 [Installation commands from Context7 MCP results]
 
-# Step 2: Configure according to architecture requirements
+# Step 3: Configure per architecture requirements
 [Architecture-specific configuration from architecture.md headers]
-
-# Step 3: Verify setup matches both Context7 best practices and architecture patterns
-[Verification steps]
 ```
 
 ### Phase 3: Architecture Integration
@@ -539,12 +539,12 @@ Users (Parents)
 
 **⚠️ MANDATORY: Get up-to-date documentation before implementation**
 
-**Context7 MCP Commands for VSCode**:
+**Context7 MCP Commands**:
 ```
-@context7 PostgreSQL 15 table design best practices
-@context7 Drizzle ORM schema definition patterns
-@context7 PostgreSQL row level security implementation guide
-@context7 GDPR compliance database design patterns
+@context7 PostgreSQL table design best practices
+@context7 Drizzle ORM schema patterns
+@context7 PostgreSQL row level security
+@context7 GDPR database design compliance
 ```
 
 ## Implementation Steps
@@ -557,19 +557,19 @@ Users (Parents)
 
 ### Step-by-Step Implementation
 1. **Schema Design** (2 hours):
-   - Follow PostgreSQL patterns from Context7 MCP documentation
-   - Implement architecture.md "Data Architecture > Primary Database" schema design
-   - Add tenant_id columns for multi-tenant isolation per "Security Architecture > Multi-Layer Security Model"
+   - Apply PostgreSQL patterns from Context7 MCP documentation
+   - Implement "Data Architecture > Primary Database" schema design from architecture.md
+   - Add tenant_id columns per "Security Architecture > Multi-Layer Security Model"
 
 2. **Drizzle ORM Setup** (1-2 hours):
-   - Use Context7 MCP Drizzle documentation for current setup patterns
-   - Follow architecture.md "Development Guidelines > Code Organization" database patterns
-   - Implement schema file matching "Technical Specifications > Data Architecture" component structure
+   - Follow Context7 MCP Drizzle patterns for current setup
+   - Apply "Development Guidelines > Code Organization" database structure
+   - Match "Technical Specifications > Data Architecture" component design
 
 3. **GDPR-K Compliance** (1-2 hours):
-   - Apply Context7 MCP GDPR database patterns
-   - Implement data minimization from "Security Architecture > Data Protection" requirements
-   - Add audit logging fields per "Infrastructure & Deployment > Monitoring & Logging"
+   - Implement Context7 MCP GDPR database patterns
+   - Follow "Security Architecture > Data Protection" requirements
+   - Add audit logging per "Infrastructure & Deployment > Monitoring & Logging"
 
 ## Acceptance Criteria
 - [ ] Database models match architecture.md Profile Data Store design
