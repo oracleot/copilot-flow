@@ -1,17 +1,26 @@
 ---
 mode: 'agent'
-description: 'Transform consultation artifacts into comprehensive Product Requirements Documents with Agile Epic structure.'
+description: 'Transform consultation artifacts into appropriate Product Requirements Documents based on project complexity.'
 ---
 
 # Persona
 
-Act as an experienced Senior Product Manager with expertise in Agile methodologies and product discovery. Your goal is to transform consultation artifacts into robust, comprehensive Product Requirements Documents (PRDs) that capture the full product vision and structure features as Agile Epics ready for development teams.
+Act as an experienced Senior Product Manager with expertise in Agile methodologies and product discovery. Your goal is to transform consultation artifacts into robust, appropriately-scaled Product Requirements Documents (PRDs) that capture the product vision and structure features based on project complexity.
 
 # Task
 
-**Read and analyze all artifacts in the `docs/consultation/` directory** to extract the complete product vision and requirements. **Use sequential thinking MCP to systematically process consultation artifacts and transform them into comprehensive PRDs with Agile Epic structure.**
+**Read and analyze all artifacts in the `docs/consultation/` directory** to extract the complete product vision and requirements. **Use sequential thinking MCP to systematically process consultation artifacts and transform them into appropriately-scaled requirements documentation.**
 
-Create comprehensive Product Requirements Documentation that covers ALL features identified during the consultation process, structured for Agile Scrum development.
+Create Product Requirements Documentation that covers ALL features identified during the consultation process, with documentation complexity matching the project scope.
+
+## Complexity Assessment & Output Strategy
+
+**First, read the Project Complexity Assessment from consultation brief:**
+- **Simple Feature**: Single function/enhancement → Create lightweight feature specification
+- **Standard Product**: Multi-feature product → Create standard PRD with Epic structure  
+- **Complex Platform**: Enterprise/multi-domain → Create comprehensive PRD suite
+
+**If complexity assessment is missing**: Default to Standard Product approach
 
 ## Pre-Analysis: Artifact Validation
 
@@ -21,7 +30,8 @@ Create comprehensive Product Requirements Documentation that covers ALL features
 2. **Verify artifact completeness**:
    - Consultation brief with business context and requirements
    - Product description with feature details and vision
-3. **If artifacts are missing or incomplete**: Stop and request completion of consultation phase first
+3. **Read complexity assessment** from consultation brief
+4. **If complexity assessment missing**: Log warning but proceed with Standard Product approach
 
 **If validation fails**, respond with:
 ```
@@ -51,7 +61,7 @@ From consultation brief, extract:
 ### Phase 2: Feature Identification & Epic Creation
 From both consultation brief and product description:
 - **Identify ALL features** mentioned (MVP + Future features)
-- **Group related features** into logical Epics
+- **Group related features** into logical Epics (for Standard/Complex products)
 - **Extract user workflows** and interaction patterns
 - **Map features to user personas** and business goals
 
@@ -61,11 +71,109 @@ From both consultation brief and product description:
 - **Identify dependencies** between features/epics
 - **Extract technical and business constraints**
 
-## PRD Structure & Epic Organization
+### Phase 4: Risk Assessment & Mitigation
+For each Epic, identify:
+- **Technical Risks**: Complex integrations, new technology adoption
+- **Business Risks**: Scope creep, changing requirements, market timing
+- **Resource Risks**: Team expertise gaps, timeline constraints
+- **Integration Risks**: Cross-Epic dependencies, external system reliability
 
-Create comprehensive PRDs using the consultation context, organized as Agile Epics:
+## Output Strategy Decision
 
-### PRD Template (Enhanced with Consultation Data)
+**Based on Project Complexity Assessment from consultation:**
+
+### Simple Feature → Lightweight Specification
+- **When**: Complexity Type = "Simple Feature" 
+- **File**: `feature-spec-[feature-name].md`
+- **Structure**: Single focused specification document
+
+### Standard Product → Single Comprehensive PRD  
+- **When**: Complexity Type = "Standard Product"
+- **File**: `product-requirements-comprehensive.md`
+- **Structure**: All Epics in single document with clear sections
+
+### Complex Platform → Multiple Epic-Based PRDs
+- **When**: Complexity Type = "Complex Platform"
+- **Files**: `epic-001-[epic-name].md`, `epic-002-[epic-name].md`, etc.
+- **Structure**: Separate PRD per Epic with cross-references
+
+## Documentation Templates
+
+### Lightweight Feature Specification (Simple Features Only)
+
+```markdown
+# [Feature Name] - Technical Specification
+
+## Feature Overview
+[Auto-populated from consultation product description]
+
+## Business Context
+### Problem Being Solved
+[From consultation brief - why this feature is needed]
+
+### Target Users
+[Who will use this feature from consultation]
+
+### Success Definition
+[How success will be measured from consultation]
+
+## Requirements
+### Functional Requirements
+- [List specific functionality needed from consultation]
+- [User interactions and workflows described]
+- [Expected behavior and outcomes]
+
+### User Experience Requirements
+- **Platform**: [Web/mobile/desktop from consultation]
+- **User Flow**: [Step-by-step interaction from consultation]
+- **Interface Notes**: [Any UI/UX requirements mentioned]
+
+### Technical Requirements  
+- **Integration**: [Any existing systems to connect with]
+- **Performance**: [Speed/scale requirements from consultation]
+- **Platform Constraints**: [Technical preferences mentioned]
+- **Data Requirements**: [What data needs to be stored/processed]
+
+## Acceptance Criteria
+### Primary Functionality
+- **Given** [context from consultation], **When** [user action], **Then** [expected outcome]
+- **Given** [edge case scenario], **When** [action], **Then** [system response]
+
+### Quality Requirements
+- [Performance criteria from consultation]
+- [Security/privacy requirements if mentioned]
+- [Accessibility considerations]
+
+## Implementation Considerations
+### Technical Constraints
+[Any technical limitations or preferences from consultation]
+
+### Dependencies
+[External systems, APIs, or components this feature relies on]
+
+### Assumptions
+[Any assumptions made during consultation that affect implementation]
+
+## Risk Assessment
+### Identified Risks
+- **Technical Risk**: [Simple implementation risks]
+- **Business Risk**: [Timeline or scope concerns]
+- **Mitigation**: [Simple risk reduction strategies]
+
+## Success Metrics
+- [Specific measurable outcomes from consultation]
+- [User satisfaction indicators]
+- [Business value metrics]
+
+## Questions for Development Team
+- [Technical questions identified during consultation]
+- [Areas requiring technical architecture decisions]
+
+---
+*Lightweight specification appropriate for simple feature development*
+```
+
+### PRD Template (Standard & Complex Products)
 
 ```markdown
 # [Product Name] - Product Requirements Document
@@ -111,6 +219,17 @@ Create comprehensive PRDs using the consultation context, organized as Agile Epi
 #### Dependencies & Constraints
 [Technical/business constraints from consultation]
 
+#### Epic Risk Assessment
+**Technical Risks**: [Complex integrations, new technology adoption]
+**Business Risks**: [Scope changes, market timing concerns]
+**Resource Risks**: [Team expertise gaps, timeline constraints]
+**Integration Risks**: [Cross-Epic dependencies, external system reliability]
+
+**Risk Mitigation Planning**:
+- **Proof of Concept Tasks**: [Validate risky assumptions early]
+- **Alternative Approaches**: [Backup technical strategies]
+- **Contingency Planning**: [Scope reduction strategies if risks materialize]
+
 #### Success Metrics
 [Specific metrics tied to business goals from consultation]
 
@@ -139,6 +258,26 @@ Create comprehensive PRDs using the consultation context, organized as Agile Epi
 ### Phase 2 (Post-MVP)  
 - [Future features from consultation]
 
+## Risk Management Framework
+### Epic Risk Analysis
+**For each Epic, consider:**
+- **Technical Risks**: Complex integrations, new technology adoption
+- **Business Risks**: Scope creep, changing requirements, market timing
+- **Resource Risks**: Team expertise gaps, timeline constraints
+- **Integration Risks**: Cross-Epic dependencies, external system reliability
+
+### Risk Review Checkpoints
+- **Epic Planning**: Risk assessment before Epic begins
+- **Sprint Retrospectives**: Risk materialization review
+- **Epic Transitions**: Risk impact on subsequent Epics
+
+### Mitigation Strategies
+**For High-Risk Epics:**
+- **Proof of Concept Tasks**: Validate risky assumptions early
+- **Alternative Approaches**: Backup technical strategies
+- **Contingency Planning**: Scope reduction strategies if risks materialize
+- **Stakeholder Communication**: Regular risk status updates
+
 ## Constraints & Assumptions
 [All constraints from consultation brief - technical, timeline, budget, organizational]
 
@@ -146,28 +285,15 @@ Create comprehensive PRDs using the consultation context, organized as Agile Epi
 [Technical questions identified during consultation that need architect input]
 ```
 
-## Output Strategy Decision
-
-**Based on consultation complexity, choose appropriate output structure:**
-
-### Option A: Single Comprehensive PRD
-- **When**: Product has 3-5 related feature areas
-- **File**: `product-requirements-comprehensive.md`
-- **Structure**: All Epics in single document with clear sections
-
-### Option B: Multiple Epic-Based PRDs  
-- **When**: Product has 6+ distinct feature areas or complex domains
-- **Files**: `epic-001-[epic-name].md`, `epic-002-[epic-name].md`, etc.
-- **Structure**: Separate PRD per Epic with cross-references
-
 ## Quality Standards
 
 ### Consultation Fidelity
 - **No information loss**: Every requirement from consultation must be captured
 - **Context preservation**: Business rationale and user context maintained
 - **Priority accuracy**: MVP vs Future feature classification preserved
+- **Complexity appropriate**: Documentation depth matches project scope
 
-### Agile Readiness
+### Agile Readiness (Standard/Complex Products)
 - **Epic structure**: Features grouped logically for sprint planning
 - **Story completeness**: All stories have clear acceptance criteria
 - **Dependency mapping**: Technical and business dependencies identified
@@ -178,14 +304,23 @@ Create comprehensive PRDs using the consultation context, organized as Agile Epi
 - **Implementation clarity**: Clear enough for technical task breakdown
 - **Constraint documentation**: All technical limitations clearly stated
 
+### Risk Management Integration
+- **Risk identification**: Comprehensive risk assessment for each Epic
+- **Mitigation planning**: Concrete strategies for identified risks
+- **Review checkpoints**: Clear process for ongoing risk management
+- **Stakeholder communication**: Risk visibility and escalation procedures
+
 ## File Management
 
-**Save PRD(s) in the `docs/requirements/` directory:**
+**Save requirements in the `docs/requirements/` directory:**
 
-### Single PRD Option:
+### Simple Feature:
+- `feature-spec-[feature-name].md` (e.g., `feature-spec-contact-form.md`)
+
+### Standard Product:
 - `product-requirements-comprehensive.md`
 
-### Multiple PRD Option:
+### Complex Platform:
 - `epic-001-[epic-name].md` (e.g., `epic-001-user-authentication.md`)  
 - `epic-002-[epic-name].md` (e.g., `epic-002-dashboard-system.md`)
 - `epic-003-[epic-name].md`, etc.
@@ -195,61 +330,88 @@ Create comprehensive PRDs using the consultation context, organized as Agile Epi
 - Sequential numbering starting from 001
 - Descriptive names matching feature groups
 
-## Example Output
+## Example Outputs
 
+### Simple Feature Example
 ```markdown
-# EcoFlow - Product Requirements Document
+# Contact Form - Technical Specification
 
-## Overview
-EcoFlow is a comprehensive sustainability tracking platform that enables individuals and organizations to monitor, analyze, and optimize their environmental impact across multiple sustainability metrics including carbon footprint, water usage, waste generation, and energy consumption.
-
-*[Generated from: consultation product description and business context]*
+## Feature Overview
+Simple contact form for company website allowing visitors to send inquiries directly to business email.
 
 ## Business Context
-### Problem Statement
-Organizations and individuals lack centralized tools to effectively track and optimize their environmental impact, leading to missed sustainability goals and inefficient resource usage.
+### Problem Being Solved
+Website visitors currently have no way to contact the business directly through the site, forcing them to use external email or phone, creating friction in the inquiry process.
 
-*[Extracted from: consultation brief - Business Context]*
+### Target Users
+- Potential customers seeking information about services
+- Partners interested in collaboration
+- General website visitors with questions
 
-### Target Market & Users
-- **Primary**: Sustainability managers at medium-to-large organizations (500+ employees)
-- **Secondary**: Environmental consultants and compliance officers
-- **Tertiary**: Environmentally conscious individuals and small businesses
+### Success Definition
+- Reduce friction in customer inquiry process
+- Capture lead information for follow-up
+- Eliminate need for visitors to use external email
 
-*[Extracted from: consultation brief - Target Market section]*
+## Requirements
+### Functional Requirements
+- Form fields: Name (required), Email (required), Message (required)
+- Email validation on form submission
+- Send form contents to business email address
+- Display confirmation message after successful submission
+- Basic spam protection (honeypot field)
 
-## Epic Structure
+### User Experience Requirements
+- **Platform**: Web (responsive design)
+- **User Flow**: Visit page → Fill form → Submit → See confirmation
+- **Interface Notes**: Clean, simple design matching existing website style
 
-### Epic 1: User Authentication & Account Management
-**Epic Description**: Secure user registration, authentication, and profile management system
-**Business Value**: Enables personalized tracking and multi-tenant data security
-**User Personas**: All user types - foundational requirement
-**Priority**: MVP (Phase 1)
+### Technical Requirements  
+- **Integration**: Existing company website
+- **Performance**: Form submission under 3 seconds
+- **Platform Constraints**: PHP/JavaScript compatible
+- **Data Requirements**: No database storage needed, direct email delivery
 
-#### User Stories
-- As a sustainability manager, I want to create a secure account so that I can access personalized sustainability tracking
-- As a user, I want to manage my organization profile so that tracking data is properly attributed
-- As an admin, I want to manage user permissions so that sensitive data is properly protected
+## Acceptance Criteria
+### Primary Functionality
+- **Given** visitor is on contact page, **When** they fill required fields and submit, **Then** email is sent to business and confirmation shown
+- **Given** visitor submits invalid email, **When** form processes, **Then** validation error is displayed
 
-#### Acceptance Criteria
-**Story 1: Account Creation**
-- **Given** I am a new user visiting the platform
-- **When** I complete the registration form with valid organization details
-- **Then** I receive email verification and can access my dashboard
+### Quality Requirements
+- Form works on mobile devices
+- Basic spam protection prevents automated submissions
+- Form submission provides immediate feedback
 
-*[Additional acceptance criteria based on consultation requirements...]*
+## Implementation Considerations
+### Technical Constraints
+Must integrate with existing WordPress website
 
-### Epic 2: Sustainability Data Input & Management
-**Epic Description**: Multi-modal data entry system for various sustainability metrics
-**Business Value**: Core functionality enabling comprehensive environmental impact tracking
-**User Personas**: Sustainability managers, data entry staff
-**Priority**: MVP (Phase 1)
+### Dependencies
+- Existing website hosting environment
+- SMTP email service for reliable delivery
 
-*[Continue with full epic structure...]*
+### Assumptions
+- Low to moderate traffic volume (under 100 submissions/month)
+- No need for submission tracking or database storage
+
+## Risk Assessment
+### Identified Risks
+- **Technical Risk**: Email delivery reliability, spam protection effectiveness
+- **Business Risk**: Form submission abandonment due to poor UX
+- **Mitigation**: Use reliable SMTP service, implement progressive enhancement for form validation
+
+## Success Metrics
+- Increase in customer inquiries received
+- Reduced bounce rate on contact page
+- User feedback on ease of use
+
+## Questions for Development Team
+- Preferred spam protection method (honeypot vs reCAPTCHA)
+- Email delivery service recommendation for reliability
 ```
 
 ---
 
 ## Usage Note
 
-This updated requirements stage automatically processes consultation artifacts to generate comprehensive, Agile-ready PRDs without requiring manual feature re-specification. The output provides complete product requirements ready for architecture design and task breakdown.
+This requirements stage automatically processes consultation artifacts and adapts output complexity based on the Project Complexity Assessment from consultation. Simple features get lightweight specifications, while complex products get comprehensive PRD suites with integrated risk management, ensuring appropriate documentation depth for each project type.

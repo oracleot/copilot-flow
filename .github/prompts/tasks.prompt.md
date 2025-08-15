@@ -219,9 +219,9 @@ docs/tasks/
 
 **Context7 Commands to Execute in VSCode**:
 ```
-@context7 [library name] [specific feature] setup guide
-@context7 [framework] [configuration] current best practices  
-@context7 [dependency] [integration pattern] latest documentation
+[library name] [specific feature] setup guide. use context7
+[framework] [configuration] current best practices. use context7
+[dependency] [integration pattern] latest documentation. use context7
 ```
 
 ## Implementation Steps
@@ -457,15 +457,15 @@ Create `docs/tasks/epic-index.md` with:
 
 **VSCode MCP Commands**:
 ```
-@context7 Next.js 14 project setup App Router
-@context7 PostgreSQL installation setup guide
-@context7 [specific dependency] [framework] integration
+Next.js 14 project setup App Router. use context7
+PostgreSQL installation setup guide. use context7
+[specific dependency] [framework] integration. use context7
 ```
 
 ## Project Setup Instructions
 
 ### Phase 1: Documentation Review
-1. **Execute Context7 MCP Commands**: Run required @context7 commands in VSCode MCP
+1. **Execute Context7 MCP Commands**: Run required commands in VSCode MCP. use context7
 2. **Architecture Review**: Review architecture.md headers [list specific headers] for project structure
 3. **Pattern Reconciliation**: Align Context7 current practices with architecture requirements
 
@@ -474,7 +474,7 @@ Create `docs/tasks/epic-index.md` with:
 
 ```bash
 # Step 1: Get current setup documentation
-# Execute: @context7 [technology] setup guide
+# Execute: [technology] setup guide. use context7
 
 # Step 2: Initialize following current best practices
 [Installation commands from Context7 MCP results]
@@ -541,10 +541,10 @@ Users (Parents)
 
 **Context7 MCP Commands**:
 ```
-@context7 PostgreSQL table design best practices
-@context7 Drizzle ORM schema patterns
-@context7 PostgreSQL row level security
-@context7 GDPR database design compliance
+PostgreSQL table design best practices. use context7
+Drizzle ORM schema patterns. use context7
+PostgreSQL row level security. use context7
+GDPR database design compliance. use context7
 ```
 
 ## Implementation Steps
