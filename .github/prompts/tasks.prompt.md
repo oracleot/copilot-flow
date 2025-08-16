@@ -13,6 +13,46 @@ Act as an experienced Agile Technical Lead and Scrum Master with expertise in br
 
 **Use sequential thinking MCP to systematically process all artifacts and create a hierarchical task structure with proper Agile organization, story point estimation, and implementation-ready instructions.**
 
+## Project Structure Validation (MANDATORY)
+
+### Before Task Generation - Project Structure Setup
+
+#### Step 1: Project Structure Analysis
+
+## Project Structure Check:
+- [ ] Analyzed current directory structure
+- [ ] Identified project type: [New Project / Existing Project]
+- [ ] Located docs/consultation/, docs/requirements/, docs/architecture.md artifacts
+- [ ] Located docs/tasks/ directory for output
+- [ ] Confirmed documentation hierarchy supports hierarchical task structure
+
+#### Step 2: Directory Creation (If Needed)
+```bash
+# For new projects - ensure task structure:
+mkdir -p docs/consultation
+mkdir -p docs/requirements
+mkdir -p docs/tasks
+
+# For existing projects - verify task structure:
+# Ensure docs/tasks/ exists for Epic/Story/Task hierarchy
+```
+
+#### Step 3: Task Structure Confirmation
+**Before creating task documentation, confirm:**
+- **Source Directories**: docs/consultation/, docs/requirements/, docs/architecture.md
+- **Target Directory**: docs/tasks/ for hierarchical Epic/Story/Task structure
+- **Naming Convention**: epic-001-[name]/story-001/task-001.md pattern
+- **Organization Logic**: Hierarchical structure supports Agile development workflow
+
+### Task Documentation Pattern
+
+## File Organization Plan:
+- **Task Directory**: docs/tasks/
+- **Simple Features**: docs/tasks/feature-[name]/task-001.md
+- **Standard Products**: docs/tasks/epic-001-[name]/story-001/task-001.md
+- **Complex Platforms**: Full Epic/Story/Task hierarchy with cross-references
+- **Development Integration**: Task files provide immediate implementation guidance
+
 ## Complexity-Aware Task Generation
 
 **First, read the Project Complexity Assessment from consultation brief to determine task structure:**
@@ -39,16 +79,16 @@ Act as an experienced Agile Technical Lead and Scrum Master with expertise in br
 
 **Before proceeding, validate that the complete workflow context exists:**
 
-### 1. **Consultation Artifacts** (`docs/consultation/`)
+### **Consultation Artifacts** (`docs/consultation/`)
 - Consultation brief (business context, priorities, constraints)
 - Product description (vision, market context)
 
-### 2. **Architecture Documentation** (`docs/architecture.md`)
+### **Architecture Documentation** (`docs/architecture.md`)
 - Complete system architecture supporting all Epics
 - Technology stack and component structure
 - Epic-to-component mapping
 
-### 3. **Requirements Artifacts** (`docs/requirements/`)
+### **Requirements Artifacts** (`docs/requirements/`)
 - PRD(s) with Epic structure and user stories
 - Acceptance criteria and success metrics
 
@@ -147,6 +187,34 @@ docs/tasks/
 
 ## Feature Context
 [Brief description linking to consultation requirements]
+
+## File Organization
+**Project Structure**: [New Project: project-name/ | Existing Project: follow existing structure]
+**Target Files**:
+- **Source Code**: [specific file paths relative to project root]
+- **Tests**: [test file paths]
+- **Documentation**: [documentation file paths]
+- **Configuration**: [config file paths if applicable]
+
+### Implementation File Plan
+```
+project-name/                  # or existing project directory
+├── src/                       # or app/ for Next.js
+│   ├── [specific files to create/modify]
+│   └── components/
+│       └── [component files]
+├── tests/
+│   └── [test files]
+├── docs/
+│   └── [documentation updates]
+└── [config files in root]
+```
+
+## File Creation Checklist
+- [ ] Confirmed target project directory
+- [ ] Identified correct subdirectories for each file type
+- [ ] Planned file naming following project conventions
+- [ ] Ensured no files placed directly in system root directory
 
 ## Implementation Steps
 [Streamlined implementation - no Epic complexity]
@@ -316,6 +384,34 @@ docs/tasks/
 
 ## Task Description
 [Detailed technical description of what needs to be implemented]
+
+## File Organization
+**Project Structure**: [New Project: project-name/ | Existing Project: follow existing structure]
+**Target Files**:
+- **Source Code**: [specific file paths relative to project root]
+- **Tests**: [test file paths]
+- **Documentation**: [documentation file paths]
+- **Configuration**: [config file paths if applicable]
+
+### Implementation File Plan
+```
+project-name/                   # or existing project directory
+├── src/                       # or app/ for Next.js
+│   ├── [specific files to create/modify]
+│   └── components/
+│       └── [component files]
+├── tests/
+│   └── [test files]
+├── docs/
+│   └── [documentation updates]
+└── [config files in root]
+```
+
+## File Creation Checklist
+- [ ] Confirmed target project directory
+- [ ] Identified correct subdirectories for each file type
+- [ ] Planned file naming following project conventions
+- [ ] Ensured no files placed directly in system root directory
 
 ## Architecture Reference
 **Primary Architecture Components**: [Specific components from architecture.md]
@@ -557,22 +653,28 @@ Create `docs/tasks/epic-index.md` with:
 
 **Every task file MUST include**:
 
-1. **Context7 Documentation Requirements**:
+1. **File Organization Section**:
+   - Specific file paths for all deliverables
+   - Project structure confirmation (new vs existing project)
+   - Implementation file plan with directory structure
+   - File creation checklist ensuring proper placement
+
+2. **Context7 Documentation Requirements**:
    - Specific Context7 queries needed before implementation
    - Required library documentation to fetch
    - Version-specific documentation needs
 
-2. **Architecture Compliance**:
+3. **Architecture Compliance**:
    - Exact architecture.md sections that apply
    - Code patterns to follow from architecture
    - Integration requirements with other components
 
-3. **Project Setup Instructions** (when applicable):
+4. **Project Setup Instructions** (when applicable):
    - Step-by-step setup with Context7 documentation consultation
    - Installation commands with verification steps
    - Configuration matching architecture requirements
 
-4. **Implementation Steps**:
+5. **Implementation Steps**:
    - Granular, actionable implementation instructions
    - Architecture pattern enforcement at each step
    - Testing and verification requirements
@@ -604,6 +706,57 @@ Create `docs/tasks/epic-index.md` with:
 
 ```markdown
 # Task [ID]: [Project Setup Task Name]
+
+## Task Description
+[Description of the project setup or major dependency installation task]
+
+## File Organization
+**Project Structure**: New Project: project-name/ (to be created)
+**Target Files**:
+- **Project Root**: 
+  - `package.json` or equivalent dependency file
+  - `[framework].config.js` (Next.js, Vite, etc.)
+  - `.env.example` and `.env.local`
+- **Source Code Structure**: 
+  - `src/` or `app/` directory structure
+  - `components/` directory
+  - `lib/` or `utils/` directory
+- **Configuration**:
+  - `.gitignore`
+  - `tsconfig.json` (if TypeScript)
+  - `tailwind.config.js` (if using Tailwind)
+- **Documentation**: 
+  - `README.md` with setup instructions
+  - `docs/` directory structure
+
+### Implementation File Plan
+```
+project-name/                   # new project directory
+├── package.json               # dependency management
+├── next.config.js             # or equivalent framework config
+├── tailwind.config.js         # styling configuration
+├── tsconfig.json              # TypeScript configuration
+├── .env.example               # environment template
+├── .env.local                 # local environment
+├── .gitignore                 # git ignore rules
+├── README.md                  # project documentation
+├── src/                       # or app/ for Next.js App Router
+│   ├── components/            # reusable components
+│   ├── lib/                   # utility functions
+│   ├── styles/                # global styles
+│   └── app/                   # app pages (Next.js App Router)
+├── docs/                      # project documentation
+│   ├── setup.md              # setup instructions
+│   └── architecture.md       # technical documentation
+└── tests/                     # test directory
+    └── setup.test.js         # setup validation tests
+```
+
+## File Creation Checklist
+- [ ] Confirmed new project directory name and location
+- [ ] Planned complete project structure following framework conventions
+- [ ] Prepared configuration files for chosen technology stack
+- [ ] Ensured proper documentation structure for team collaboration
 
 ## Context7 Documentation Requirements
 
@@ -681,6 +834,48 @@ PostgreSQL installation setup guide. use context7
 
 ## Task Description
 Create User and ChildProfile PostgreSQL database models following the architecture's Profile Data Store design with proper GDPR-K compliance and multi-tenant isolation.
+
+## File Organization
+**Project Structure**: Existing Project: follow existing structure
+**Target Files**:
+- **Source Code**:
+  - `src/db/schema/users.ts` (User and Parent models)
+  - `src/db/schema/children.ts` (Child profile models)
+  - `src/db/schema/index.ts` (Schema exports)
+- **Tests**:
+  - `tests/db/models/user.test.ts` (User model validation tests)
+  - `tests/db/models/children.test.ts` (Child model validation tests)
+- **Documentation**:
+  - `docs/database/schema-design.md` (Database schema documentation)
+- **Configuration**:
+  - `drizzle.config.ts` (Drizzle configuration updates)
+
+### Implementation File Plan
+```
+learning-platform/              # existing project directory
+├── src/
+│   ├── db/
+│   │   ├── schema/
+│   │   │   ├── users.ts        # User/Parent models
+│   │   │   ├── children.ts     # Child profile models
+│   │   │   └── index.ts        # Schema exports
+│   │   └── migrate.ts          # Migration utilities
+├── tests/
+│   └── db/
+│       └── models/
+│           ├── user.test.ts    # User model tests
+│           └── children.test.ts # Child model tests
+├── docs/
+│   └── database/
+│       └── schema-design.md    # Schema documentation
+└── drizzle.config.ts           # Drizzle configuration
+```
+
+## File Creation Checklist
+- [ ] Confirmed target project directory (learning-platform/)
+- [ ] Identified correct subdirectories for each file type (src/db/schema/)
+- [ ] Planned file naming following project conventions (kebab-case)
+- [ ] Ensured no files placed directly in system root directory
 
 ## Architecture Reference
 **Primary Architecture Section**: Section 4.2 - Data Architecture, Profile Data Store design
@@ -791,11 +986,14 @@ GDPR database design compliance. use context7
 ### For Developers Using These Tasks
 
 1. **Start with Epic README**: Understand Epic context and architecture mapping
-2. **Review Story README**: Understand story context and cross-story dependencies  
-3. **Execute Context7 Queries**: Get current documentation for all dependencies
-4. **Review Architecture Sections**: Read specific architecture.md sections referenced
-5. **Follow Implementation Steps**: Execute granular implementation instructions
-6. **Verify Architecture Compliance**: Ensure implementation matches architecture patterns
+2. **Review Story README**: Understand story context and cross-story dependencies
+3. **Review File Organization Section**: Confirm project structure and target file paths
+4. **Complete File Creation Checklist**: Validate proper directory structure and naming
+5. **Execute Context7 Queries**: Get current documentation for all dependencies
+6. **Review Architecture Sections**: Read specific architecture.md sections referenced
+7. **Follow Implementation Steps**: Execute granular implementation instructions
+8. **Verify Architecture Compliance**: Ensure implementation matches architecture patterns
+9. **Confirm File Placement**: Validate files are created in specified paths
 
 ### For Sprint Planning
 

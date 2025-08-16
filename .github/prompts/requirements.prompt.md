@@ -13,6 +13,48 @@ Act as an experienced Senior Product Manager with expertise in Agile methodologi
 
 Create Product Requirements Documentation that covers ALL features identified during the consultation process, with documentation complexity matching the project scope.
 
+## Project Structure Validation (MANDATORY)
+
+### Before Requirements Generation - Project Structure Setup
+
+#### Step 1: Project Structure Analysis
+```markdown
+## Project Structure Check:
+- [ ] Analyzed current directory structure
+- [ ] Identified project type: [New Project / Existing Project]
+- [ ] Located docs/consultation/ directory with source artifacts
+- [ ] Located docs/requirements/ directory for output
+- [ ] Confirmed documentation file organization follows established patterns
+```
+
+#### Step 2: Directory Creation (If Needed)
+```bash
+# For new projects - ensure documentation structure:
+mkdir -p docs/consultation
+mkdir -p docs/requirements
+mkdir -p docs/research
+
+# For existing projects - verify documentation structure:
+# Ensure docs/requirements/ exists for PRD artifacts
+```
+
+#### Step 3: Documentation Placement Confirmation
+**Before creating requirements documentation, confirm:**
+- **Source Directory**: docs/consultation/ contains consultation artifacts
+- **Target Directory**: docs/requirements/ for all PRD documents
+- **Naming Convention**: Complexity-appropriate file naming (feature-spec vs epic-based)
+- **Organization Logic**: Requirements docs support architecture and task generation
+
+### Requirements Documentation Pattern
+```markdown
+## File Organization Plan:
+- **Requirements Directory**: docs/requirements/
+- **Simple Features**: feature-spec-[feature-name].md
+- **Standard Products**: product-requirements-comprehensive.md
+- **Complex Platforms**: epic-001-[epic-name].md, epic-002-[epic-name].md, etc.
+- **Integration Support**: Files feed into architecture and task generation stages
+```
+
 ## Complexity Assessment & Output Strategy
 
 **First, read the Project Complexity Assessment from consultation brief:**

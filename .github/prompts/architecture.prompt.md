@@ -13,6 +13,47 @@ Act as an experienced Software Architect with expertise in system design, techno
 
 **Before beginning, use sequential thinking MCP to break down the architectural design process into manageable components, ensuring comprehensive coverage and logical progression through design decisions informed by the complete product context.**
 
+## Project Structure Validation (MANDATORY)
+
+### Before Architecture Design - Project Structure Setup
+
+#### Step 1: Project Structure Analysis
+```markdown
+## Project Structure Check:
+- [ ] Analyzed current directory structure
+- [ ] Identified project type: [New Project / Existing Project]
+- [ ] Located docs/ directory for architecture documentation
+- [ ] Confirmed docs/consultation/ and docs/requirements/ directories exist
+- [ ] Verified artifact file organization follows established patterns
+```
+
+#### Step 2: Directory Creation (If Needed)
+```bash
+# For new projects - ensure documentation structure:
+mkdir -p docs/consultation
+mkdir -p docs/requirements
+mkdir -p docs/research
+
+# For existing projects - verify documentation structure:
+# Ensure docs/ hierarchy exists for architecture documentation
+```
+
+#### Step 3: Documentation Placement Confirmation
+**Before creating architecture documentation, confirm:**
+- **Target Directory**: docs/architecture.md (project root level documentation)
+- **Research Files**: docs/research/[technology]-research/ for Context7 findings
+- **Naming Convention**: Follow project documentation standards
+- **Organization Logic**: Architecture docs accessible to development teams
+
+### Architecture Documentation Pattern
+```markdown
+## File Organization Plan:
+- **Architecture Document**: docs/architecture.md
+- **Research Documentation**: docs/research/[tech]-research/
+- **Context Integration**: Links to docs/consultation/ and docs/requirements/
+- **Development Access**: Architecture serves as central technical reference
+```
+
 ## Complexity-Responsive Architecture Approach
 
 **First, read the Project Complexity Assessment from consultation brief to determine architecture scope:**
@@ -144,6 +185,18 @@ Based on **complete product context**:
 
 ## Development Guidance
 **File Structure**: [Where code should live in existing project]
+- **Source Files**: src/[feature-area]/[specific-files]
+- **Component Files**: src/components/[feature-components]
+- **Utility Files**: src/lib/[feature-utilities]
+- **Test Files**: tests/[feature-tests]
+- **Documentation**: docs/[feature-documentation]
+
+**Project Structure Compliance**:
+- Follow existing project organization patterns
+- Place source code in appropriate src/ subdirectories
+- Never place implementation files in project root
+- Maintain separation between components, utilities, and tests
+
 **Testing Strategy**: [Minimal testing approach for feature]
 **Deployment Notes**: [How feature deploys with existing system]
 
@@ -169,6 +222,76 @@ Based on **complete product context**:
 7. **Development Guidelines** - Code organization, Epic development patterns, testing strategy, platform best practices
 8. **Operational Considerations** - Maintenance, scalability plan, risk assessment, platform evolution, future considerations
 9. **Architecture Evolution Framework** - Evolution checkpoints, versioning, controlled evolution process
+
+## Code Organization & Project Structure Template
+
+**Include this section in all architecture documents as "Development Guidelines > Code Organization":**
+
+```markdown
+## Code Organization & Project Structure
+
+### Recommended Project Structure
+```
+project-name/
+├── README.md                  # Project overview and setup instructions
+├── docs/                      # All project documentation
+│   ├── consultation/         # Business requirements and consultation artifacts
+│   ├── requirements/         # Product requirements documents
+│   ├── research/             # Context7 research findings
+│   └── architecture.md       # This document
+├── src/                      # All source code (or app/ for Next.js)
+│   ├── components/           # Reusable UI components
+│   ├── pages/               # Page components (if applicable)
+│   ├── lib/                 # Utility functions and configurations
+│   ├── hooks/               # Custom React hooks (if React)
+│   ├── types/               # Type definitions
+│   └── styles/              # Styling files
+├── tests/                   # Test files
+├── public/                  # Static assets
+├── .gitignore              # Git ignore patterns
+├── package.json            # Dependencies and scripts (Node.js)
+├── [framework config]      # next.config.js, vite.config.js, etc.
+└── [environment files]     # .env.local, .env.example
+```
+
+### File Placement Rules
+1. **Never place source code in project root** - Always use src/ or app/
+2. **Follow framework conventions** - Next.js uses app/, React uses src/
+3. **Group related functionality** - Components, hooks, utilities in dedicated directories
+4. **Separate concerns** - Tests, docs, and source code in different directories
+5. **Configuration at root** - Package.json, config files, environment files
+
+### Component Organization Pattern
+```
+src/components/
+├── ui/                      # Basic UI components (buttons, inputs)
+├── forms/                   # Form components
+├── layout/                  # Layout components (header, footer, sidebar)
+└── feature-specific/        # Components specific to business features
+```
+
+### Implementation Directory Guidelines
+**When implementing Epic tasks:**
+- **Epic 1 (Auth)**: src/components/auth/, src/lib/auth/, src/types/auth.ts
+- **Epic 2 (Dashboard)**: src/components/dashboard/, src/lib/dashboard/
+- **Epic 3 (API)**: src/lib/api/, src/types/api.ts (or separate API project)
+
+### Project Initialization Commands
+```bash
+# Create project structure
+mkdir project-name
+cd project-name
+
+# Initialize with framework (choose one):
+npx create-next-app@latest . --typescript --tailwind --app
+npx create-react-app . --template typescript
+npm init -y && mkdir src tests docs
+
+# Create directory structure
+mkdir -p src/{components,lib,hooks,types,styles}
+mkdir -p docs/{consultation,requirements,research}
+mkdir -p tests
+```
 
 ## Architecture Evolution Framework
 
@@ -215,6 +338,8 @@ Based on **complete product context**:
 
 ### Development Team Readiness
 - **Implementation Clarity** - Clear guidance for Epic development teams
+- **Project Structure Definition** - Comprehensive code organization and file placement rules
+- **Directory Organization** - Epic-specific file organization and component placement guidelines
 - **Decision Documentation** - Rationale for all major architectural choices
 - **Evolution Planning** - Clear path for post-MVP Epic integration
 
@@ -231,8 +356,9 @@ Based on **complete product context**:
 1. **Epic Coverage Validation** - Every Epic has architectural support
 2. **Consultation Constraint Verification** - All business/technical constraints addressed
 3. **Integration Coherence** - All Epic interaction points architecturally sound
-4. **Implementation Readiness** - Architecture provides clear development guidance
-5. **Evolution Framework** - Clear process for architectural evolution established
+4. **Project Structure Completeness** - Code organization and file placement guidelines included
+5. **Implementation Readiness** - Architecture provides clear development guidance
+6. **Evolution Framework** - Clear process for architectural evolution established
 
 ## Output Format
 
@@ -264,6 +390,13 @@ Based on **complete product context**:
 - [Component Name] ([Technology], supports consultation [requirement type])
 - [Integration Layer] (handles [Epic requirement] from user stories)
 - [Data Layer] ([Storage solution], supports consultation compliance needs)
+
+**File Organization**:
+- **Source Directory**: src/[epic-specific-directory]/
+- **Component Files**: src/components/[epic-name]/
+- **Utility Functions**: src/lib/[epic-name]/
+- **Type Definitions**: src/types/[epic-name].ts
+- **Test Files**: tests/[epic-name]/
 
 **Integration Points**:
 - [Integration description with other Epics]

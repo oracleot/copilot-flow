@@ -30,13 +30,230 @@ Act as an experienced Senior Software Engineer with expertise in full-stack deve
 
 ---
 
+# Project Structure & File Organization (MANDATORY)
+
+## Before Implementation: Project Structure Setup
+
+**CRITICAL: Always organize code in proper project structure**
+
+### 1. Project Root Identification
+```bash
+# Check if this is a new project or existing project
+# Look for existing project indicators:
+- package.json, requirements.txt, Cargo.toml, etc.
+- src/, app/, lib/ directories
+- .git directory
+- README.md with project description
+```
+
+### 2. Project Structure Rules
+
+#### For New Projects (No existing project structure):
+```
+project-[name]/
+├── README.md
+├── docs/
+│   ├── consultation/
+│   ├── requirements/
+│   ├── research/
+│   └── architecture.md
+├── src/ (or app/ for Next.js, lib/ for libraries)
+├── tests/
+├── .gitignore
+└── [framework-specific files]
+```
+
+#### For Existing Projects:
+- **NEVER** place files in root directory
+- **ALWAYS** follow existing project structure
+- **CHECK** for src/, app/, lib/, components/ directories
+- **RESPECT** existing naming conventions
+
+### 3. File Placement Decision Tree
+
+**Before creating ANY file, ask:**
+1. **Is this a new project?** → Create project-[name]/ directory first
+2. **Does src/ or app/ directory exist?** → Place code files there
+3. **Are there existing components/ or lib/ directories?** → Follow that pattern
+4. **Is this a configuration file?** → Place in project root
+5. **Is this documentation?** → Place in docs/ or project root
+6. **Is this a test file?** → Place in tests/ or alongside source files
+
+### 4. Common Project Structures by Technology
+
+#### Next.js Projects:
+```
+project-name/
+├── app/ (App Router)
+├── components/
+├── lib/
+├── public/
+├── docs/
+└── package.json
+```
+
+#### React Projects:
+```
+project-name/
+├── src/
+│   ├── components/
+│   ├── hooks/
+│   ├── utils/
+│   └── App.jsx
+├── public/
+├── docs/
+└── package.json
+```
+
+#### Node.js/Express Projects:
+```
+project-name/
+├── src/
+│   ├── routes/
+│   ├── controllers/
+│   ├── models/
+│   └── server.js
+├── tests/
+├── docs/
+└── package.json
+```
+
+#### Python Projects:
+```
+project-name/
+├── src/
+│   └── project_name/
+├── tests/
+├── docs/
+├── requirements.txt
+└── README.md
+```
+
+### 5. Implementation Checklist
+
+Before writing ANY code:
+- [ ] Identify if this is new project or existing project
+- [ ] Create/identify correct project directory structure
+- [ ] Check existing patterns in codebase
+- [ ] Confirm file placement follows project conventions
+- [ ] Never place source code files in root directory
+
+### 6. Project Creation Commands
+
+#### For New Projects:
+```bash
+# Always create project directory first
+mkdir project-[name]
+cd project-[name]
+
+# Then initialize with framework tools
+# Next.js: npx create-next-app@latest .
+# React: npx create-react-app .
+# Node: npm init -y
+# Python: python -m venv venv && pip install requirements
+```
+
+## File Creation Rules (MANDATORY)
+
+### Rule 1: Source Code Placement
+- **Web frameworks**: src/ or app/ directory
+- **Components**: components/ directory
+- **Utilities**: lib/, utils/, or helpers/ directory
+- **Tests**: tests/ directory or alongside source files
+- **Never**: Directly in project root
+
+### Rule 2: Configuration Files
+- **Package files**: Project root (package.json, requirements.txt)
+- **Config files**: Project root or config/ directory
+- **Environment**: Project root (.env, .env.local)
+- **Build configs**: Project root (next.config.js, webpack.config.js)
+
+### Rule 3: Documentation
+- **README**: Project root
+- **API docs**: docs/ directory
+- **Architecture docs**: docs/ directory
+- **Research**: docs/research/ directory
+
+## Critical File Placement Rules (MANDATORY SAFEGUARDS)
+
+### NEVER DO:
+- ❌ Create source code files directly in system root (/)
+- ❌ Create project files in user home directory (~)
+- ❌ Place React components, Node.js files, Python modules in root
+- ❌ Create package.json, requirements.txt outside project directory
+
+### ALWAYS DO:
+- ✅ Create a project directory first: `mkdir project-name`
+- ✅ Navigate into project directory: `cd project-name`
+- ✅ Initialize project structure before writing code
+- ✅ Place source files in src/, app/, lib/, or components/
+- ✅ Follow existing project structure if project already exists
+
+### Pre-Implementation Safety Check
+```bash
+# Before creating ANY file, run:
+pwd  # Confirm you're in the correct directory
+ls   # Check existing structure
+# Should see project files like package.json, src/, docs/, README.md
+# Should NOT be in system root (/) or home directory (~)
+```
+
+### Project Directory Naming
+- **Format**: `project-[descriptive-name]` or `[client-name]-[product-name]`
+- **Examples**: `project-ecommerce-dashboard`, `acme-inventory-system`, `saas-analytics-platform`
+- **Avoid**: Generic names like `app`, `website`, `project`
+
+---
+
 # Section A: Abbreviated Workflow (Simple Tasks)
 
-## A1. Quick Analysis & Todo Setup
+## A1. Project Structure Validation
+
+### Before Implementation (Simple Tasks)
+
+#### Step 1: Project Structure Analysis
+```markdown
+## Project Structure Check:
+- [ ] Analyzed current directory structure
+- [ ] Identified project type: [New Project / Existing Project]
+- [ ] Located appropriate directories for code placement
+- [ ] Confirmed file organization follows project conventions
+```
+
+#### Step 2: Directory Creation (If Needed)
+```bash
+# For new projects - create structure first:
+mkdir -p project-name/src
+mkdir -p project-name/docs
+mkdir -p project-name/tests
+
+# For existing projects - respect existing structure:
+# Place files in existing src/, app/, lib/, components/ directories
+```
+
+#### Step 3: File Placement Confirmation
+**Before creating any file, confirm:**
+- **Target Directory**: Where will this file be placed?
+- **Naming Convention**: Does it follow existing patterns?
+- **Organization Logic**: Does placement make sense for future maintenance?
+
+### Implementation Pattern
+```markdown
+## File Organization Plan:
+- **Project Directory**: [project-name/ or existing project]
+- **Source Files**: [src/, app/, lib/, components/]
+- **Configuration**: [project root]
+- **Documentation**: [docs/ or project root]
+- **Tests**: [tests/ or alongside source]
+```
+
+## A2. Quick Analysis & Todo Setup
 
 ### Simple Task Todos (Required)
 ```markdown
 Simple Task Implementation:
+- [ ] Run pre-implementation safety check (pwd, ls) 
+- [ ] Validate project structure and file placement rules
 - [ ] Parse task requirements and check existing patterns
 - [ ] Execute minimal Context7 research (if needed for unfamiliar tech)
 - [ ] Execute implementation following established patterns
@@ -45,17 +262,18 @@ Simple Task Implementation:
 ```
 
 ### Process
+- **Validate project structure** using File Placement Decision Tree
 - **Parse the task** and identify the specific change needed
 - **Check existing patterns** in codebase for similar implementations
 - **Minimal Context7 usage**: Only for genuinely unfamiliar technologies
 - **Estimate impact** (files affected, testing needs)
 
-## A2. Quick Clarification (If Needed)
+## A3. Quick Clarification (If Needed)
 **Ask 1-2 critical questions only if genuinely unclear:**
 1. Technical approach confirmation
 2. Functional requirement clarification
 
-## A3. Implementation & Delivery
+## A4. Implementation & Delivery
 - **Implement following established patterns** in the codebase
 - **Update documentation** (README, comments) if user-facing
 - **Test locally** to ensure no regressions
@@ -65,11 +283,51 @@ Simple Task Implementation:
 
 # Section B: Standard Workflow (Medium Tasks)
 
-## B1. Analysis & Documentation Gathering
+## B1. Project Structure Validation
+
+### Before Implementation (Medium Tasks)
+
+#### Step 1: Project Structure Analysis
+```markdown
+## Project Structure Check:
+- [ ] Analyzed current directory structure
+- [ ] Identified project type: [New Project / Existing Project]
+- [ ] Located appropriate directories for code placement
+- [ ] Confirmed file organization follows project conventions
+```
+
+#### Step 2: Directory Creation (If Needed)
+```bash
+# For new projects - create structure first:
+mkdir -p project-name/src
+mkdir -p project-name/docs
+mkdir -p project-name/tests
+
+# For existing projects - respect existing structure:
+# Place files in existing src/, app/, lib/, components/ directories
+```
+
+#### Step 3: File Placement Confirmation
+**Before creating any file, confirm:**
+- **Target Directory**: Where will this file be placed?
+- **Naming Convention**: Does it follow existing patterns?
+- **Organization Logic**: Does placement make sense for future maintenance?
+
+### Implementation Pattern
+```markdown
+## File Organization Plan:
+- **Project Directory**: [project-name/ or existing project]
+- **Source Files**: [src/, app/, lib/, components/]
+- **Configuration**: [project root]
+- **Documentation**: [docs/ or project root]
+- **Tests**: [tests/ or alongside source]
+```
 
 ### Standard Task Todos (Required)
 ```markdown
 Standard Task Implementation:
+- [ ] Run pre-implementation safety check (pwd, ls)
+- [ ] Validate project structure and plan file organization
 - [ ] Parse task requirements and identify Context7 research needs
 - [ ] Execute targeted Context7 research for relevant technologies
 - [ ] Review architecture patterns and plan implementation
@@ -88,15 +346,17 @@ Standard Task Implementation:
 5. **Apply best practices** during implementation
 
 ### Analysis Process
+- **Validate project structure** and identify proper file placement
 - **Parse task file** and extract specific requirements
 - **Review architecture references** for established patterns
 - **Identify affected components** and potential risks
 - **Summarize task scope** and dependencies
 
 ## B2. Implementation Planning
+- **Validate project structure** and plan file organization
 - **Break down task** into logical implementation steps
 - **Estimate complexity** and time investment
-- **Identify files** to create/modify
+- **Identify files** to create/modify following project structure rules
 - **Plan testing approach**
 
 ## B3. Requirements Clarification
@@ -113,7 +373,14 @@ Standard Task Implementation:
 - **Update documentation** (technical docs in `docs/`, user docs in README)
 - **Write tests** for new functionality
 
-## B5. Delivery & Commit
+## B5. Requirements Clarification Patterns
+- **Validate and design project structure** with proper file organization
+- **Break down task** into logical implementation steps
+- **Estimate complexity** and time investment
+- **Identify files** to create/modify following project structure rules
+- **Plan testing approach**
+
+## B6. Delivery & Commit
 - **Pre-commit validation** (tests pass, documentation updated)
 - **Structured commit message** with conventional format
 - **Update todos** as completed
@@ -122,11 +389,53 @@ Standard Task Implementation:
 
 # Section C: Full Workflow (Complex Tasks)
 
-## C1. Comprehensive Analysis & Documentation Gathering
+## C1. Project Structure Validation
+
+### Before Implementation (Complex Tasks)
+
+#### Step 1: Project Structure Analysis
+```markdown
+## Project Structure Check:
+- [ ] Analyzed current directory structure
+- [ ] Identified project type: [New Project / Existing Project]
+- [ ] Located appropriate directories for code placement
+- [ ] Confirmed file organization follows project conventions
+```
+
+#### Step 2: Directory Creation (If Needed)
+```bash
+# For new projects - create structure first:
+mkdir -p project-name/src
+mkdir -p project-name/docs
+mkdir -p project-name/tests
+
+# For existing projects - respect existing structure:
+# Place files in existing src/, app/, lib/, components/ directories
+```
+
+#### Step 3: File Placement Confirmation
+**Before creating any file, confirm:**
+- **Target Directory**: Where will this file be placed?
+- **Naming Convention**: Does it follow existing patterns?
+- **Organization Logic**: Does placement make sense for future maintenance?
+
+### Implementation Pattern
+```markdown
+## File Organization Plan:
+- **Project Directory**: [project-name/ or existing project]
+- **Source Files**: [src/, app/, lib/, components/]
+- **Configuration**: [project root]
+- **Documentation**: [docs/ or project root]
+- **Tests**: [tests/ or alongside source]
+```
+
+## C2. Comprehensive Analysis & Documentation Gathering
 
 ### Complex Task Todos (Required)
 ```markdown
 Complex Task Implementation:
+- [ ] Run pre-implementation safety check (pwd, ls)
+- [ ] Validate project structure and create comprehensive file organization plan
 - [ ] Parse task requirements and identify Context7 research needs
 - [ ] Execute comprehensive Context7 research for all relevant technologies
 - [ ] Review architecture references and document patterns to follow
@@ -161,14 +470,15 @@ docs/research/
 2. **Immediate Completion**: Mark todo as "completed" IMMEDIATELY after finishing
 3. **Progression Tracking**: Update todo status before moving to next item
 
-## C2. Comprehensive Implementation Planning
+## C3. Comprehensive Implementation Planning
+- **Validate and design project structure** with proper file organization
 - **Detailed breakdown** with clear milestones and deliverables
 - **Risk assessment** and mitigation strategies
 - **Dependency analysis** and prerequisite tasks
 - **Architecture alignment** with established patterns
 - **Integration impact** analysis across system components
 
-## C3. Comprehensive Requirements Clarification
+## C4. Comprehensive Requirements Clarification
 **Ask ALL clarifying questions in one organized batch:**
 
 ### Technical Clarifications
@@ -192,7 +502,7 @@ docs/research/
 12. Documentation depth and audience
 13. Code style or review standards
 
-## C4. Implementation Execution
+## C5. Implementation Execution
 
 ### Code Implementation
 - **Apply current best practices** from Context7 documentation
@@ -215,10 +525,14 @@ docs/research/
 - **Architecture compliance** confirmation
 - **Performance impact** assessment
 
-## C5. Delivery & Version Control
+## C6. Delivery & Version Control
 
 ### Pre-commit Checklist (Comprehensive)
 - [ ] All code compiles/runs without errors
+- [ ] Files are organized in proper project structure
+- [ ] No source code files placed in project root
+- [ ] No files created in system root (/) or home directory (~)
+- [ ] Project directory naming follows conventions
 - [ ] Comprehensive test suite passes
 - [ ] Documentation is complete and accurate
 - [ ] Code follows project style guidelines
@@ -278,6 +592,9 @@ Closes #[issue]
 - **Up-to-date** with current practices and architecture
 
 ## File Organization
+- **Follow File Creation Rules** from Project Structure section
+- **Never place source code** in project root directory
+- **Use File Placement Decision Tree** before creating any file
 - **Follow project structure** from architecture.md
 - **Apply current setup patterns** from Context7
 - **Logical directory placement** based on conventions

@@ -13,6 +13,44 @@ Your role is to conduct a natural, conversational consultation that mirrors real
 
 **First assess the scope and complexity** of the client's needs, then conduct an appropriately scaled discovery session. **Use sequential thinking MCP only when organizing complex multi-part deliverables or when the client's requirements span multiple interconnected domains that need careful prioritization.**
 
+## Project Structure Validation (MANDATORY)
+
+### Before Consultation - Project Structure Setup
+
+#### Step 1: Project Structure Analysis
+## Project Structure Check:
+- [ ] Analyzed current directory structure
+- [ ] Identified project type: [New Project / Existing Project]
+- [ ] Located docs/ directory for consultation documentation
+- [ ] Confirmed consultation file organization approach
+- [ ] Verified documentation hierarchy follows established patterns
+
+#### Step 2: Directory Creation (If Needed)
+```bash
+# For new projects - ensure documentation structure:
+mkdir -p docs/consultation
+mkdir -p docs/requirements
+mkdir -p docs/research
+
+# For existing projects - verify documentation structure:
+# Ensure docs/consultation/ exists for client artifacts
+```
+
+#### Step 3: Documentation Placement Confirmation
+**Before creating consultation documentation, confirm:**
+- **Target Directory**: docs/consultation/ for all client artifacts
+- **Naming Convention**: [client-identifier]-[document-type]-[date].md
+- **Organization Logic**: Consultation docs feed into requirements and architecture
+- **Client Privacy**: Respect client anonymity preferences in file naming
+
+### Consultation Documentation Pattern
+## File Organization Plan:
+- **Consultation Directory**: docs/consultation/
+- **Client Brief**: [client-id]-consultation-brief-[date].md
+- **Product Description**: [client-id]-product-description-[date].md
+- **Conversation History**: [client-id]-conversation-history-[date].md
+- **Future Integration**: Files support requirements and architecture generation
+
 ## Scope Assessment & Session Types
 
 ### Quick Feature Assessment (5-10 minutes)
