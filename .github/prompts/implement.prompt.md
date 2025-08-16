@@ -330,7 +330,8 @@ Standard Task Implementation:
 - [ ] Validate project structure and plan file organization
 - [ ] Parse task requirements and identify Context7 research needs
 - [ ] Execute targeted Context7 research for relevant technologies
-- [ ] Review architecture patterns and plan implementation
+- [ ] Review architecture patterns and design specifications (if applicable)
+- [ ] Plan implementation following design system guidelines (for UI features)
 - [ ] Clarify requirements with user
 - [ ] Execute core implementation
 - [ ] Create/update tests
@@ -438,13 +439,14 @@ Complex Task Implementation:
 - [ ] Validate project structure and create comprehensive file organization plan
 - [ ] Parse task requirements and identify Context7 research needs
 - [ ] Execute comprehensive Context7 research for all relevant technologies
-- [ ] Review architecture references and document patterns to follow
+- [ ] Review architecture references and design specifications (when applicable)
+- [ ] Document patterns to follow from both architecture and design (if UI features)
 - [ ] Create detailed implementation plan with milestones
 - [ ] Clarify all requirements with user before implementation
 - [ ] Execute core implementation following discovered patterns
 - [ ] Create comprehensive unit and integration tests
 - [ ] Update all affected documentation
-- [ ] Perform architecture compliance verification
+- [ ] Perform architecture and design compliance verification (when applicable)
 - [ ] Commit completed task with comprehensive message
 ```
 
@@ -487,26 +489,34 @@ docs/research/
 3. Performance or scalability requirements
 4. Integration points with existing systems
 
+### Design & User Experience Clarifications (when applicable)
+5. UI component specifications and design system requirements
+6. Responsive design patterns and breakpoint considerations
+7. Accessibility requirements and WCAG compliance needs
+8. Design asset delivery and optimization requirements
+
 ### Documentation & Pattern Alignment
-5. How to handle conflicts between Context7 practices and architecture patterns?
-6. Should current best practices override architecture patterns when they differ?
-7. Are there specific architecture patterns that must be maintained?
+9. How to handle conflicts between Context7 practices and architecture patterns?
+10. Should current best practices override architecture patterns when they differ?
+11. Are there specific architecture patterns that must be maintained?
+12. How should design specifications be prioritized vs technical constraints? (for UI features)
 
 ### Functional Clarifications  
-8. Business logic edge cases or validation rules
-9. User experience flows or interface requirements
-10. Data handling or storage considerations
+13. Business logic edge cases or validation rules
+14. User experience flows or interface requirements
+15. Data handling or storage considerations
 
 ### Quality & Compliance
-11. Testing requirements (unit, integration, e2e)
-12. Documentation depth and audience
-13. Code style or review standards
+16. Testing requirements (unit, integration, e2e)
+17. Documentation depth and audience
+18. Code style or review standards
 
 ## C5. Implementation Execution
 
 ### Code Implementation
 - **Apply current best practices** from Context7 documentation
 - **Maintain architecture patterns** from architecture.md
+- **Follow design specifications** from docs/design/ directory (when applicable for UI features)
 - **Create comprehensive solution** with proper structure
 - **Add extensive error handling** and input validation
 - **Include detailed documentation** for complex logic
@@ -584,6 +594,8 @@ Closes #[issue]
 - **Proper error handling** with meaningful messages
 - **Type hints/annotations** where supported
 - **Single responsibility** functions and components
+- **Design system compliance** with consistent component usage (for UI features)
+- **Responsive design implementation** following design specifications (when applicable)
 
 ## Documentation Standards
 - **Target audience appropriate** content (users vs. developers)
@@ -602,6 +614,7 @@ Closes #[issue]
 
 ## Architecture & Documentation Integration
 - **Architecture First**: Maintain established project patterns
+- **Design System Compliance** (when applicable): Follow UI component specifications and design guidelines
 - **Current Practices**: Apply Context7 best practices for new implementations
 - **Conflict Resolution**: Document when current practices deviate from architecture
 - **Pattern Evolution**: Suggest architecture updates when beneficial
@@ -612,6 +625,7 @@ Closes #[issue]
 - **New Technology Installation**: Always get latest setup documentation
 - **Framework Configuration**: Verify current best practices and configuration patterns
 - **Library Integration**: Get current API documentation and integration examples
+- **UI Component Libraries**: Get latest component documentation and design system setup
 - **Security Implementation**: Get latest security best practices and vulnerability mitigation
 - **Performance Optimization**: Get current performance recommendations and patterns
 

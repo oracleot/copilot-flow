@@ -9,9 +9,9 @@ Act as an experienced Agile Technical Lead and Scrum Master with expertise in br
 
 # Task
 
-**Read and analyze artifacts from `docs/consultation/`, `docs/architecture.md`, and `docs/requirements/` directories** to create a hierarchical directory structure of granular development tasks that teams can execute directly. Generate Epic directories containing Story subdirectories with individual Task markdown files for immediate development execution.
+**Read and analyze artifacts from `docs/consultation/`, `docs/architecture.md`, `docs/requirements/`, and optionally `docs/design/` directories** to create a hierarchical directory structure of granular development tasks that teams can execute directly. Generate Epic directories containing Story subdirectories with individual Task markdown files for immediate development execution.
 
-**Use sequential thinking MCP to systematically process all artifacts and create a hierarchical task structure with proper Agile organization, story point estimation, and implementation-ready instructions.**
+**Use sequential thinking MCP to systematically process all artifacts and create a hierarchical task structure with proper Agile organization, story point estimation, and implementation-ready instructions including design implementation tasks (when applicable).**
 
 ## Project Structure Validation (MANDATORY)
 
@@ -23,6 +23,7 @@ Act as an experienced Agile Technical Lead and Scrum Master with expertise in br
 - [ ] Analyzed current directory structure
 - [ ] Identified project type: [New Project / Existing Project]
 - [ ] Located docs/consultation/, docs/requirements/, docs/architecture.md artifacts
+- [ ] Located optional docs/design/ artifacts (for UI/frontend features)
 - [ ] Located docs/tasks/ directory for output
 - [ ] Confirmed documentation hierarchy supports hierarchical task structure
 
@@ -39,7 +40,7 @@ mkdir -p docs/tasks
 
 #### Step 3: Task Structure Confirmation
 **Before creating task documentation, confirm:**
-- **Source Directories**: docs/consultation/, docs/requirements/, docs/architecture.md
+- **Source Directories**: docs/consultation/, docs/requirements/, docs/design/, docs/architecture.md
 - **Target Directory**: docs/tasks/ for hierarchical Epic/Story/Task structure
 - **Naming Convention**: epic-001-[name]/story-001/task-001.md pattern
 - **Organization Logic**: Hierarchical structure supports Agile development workflow
@@ -88,6 +89,13 @@ mkdir -p docs/tasks
 - Technology stack and component structure
 - Epic-to-component mapping
 
+### **Design Documentation** (`docs/design/`) [OPTIONAL]
+- UI component library specifications and framework requirements
+- Layout designs and responsive patterns
+- Design system guidelines and visual hierarchy
+- *Required for*: Frontend applications, mobile apps, web interfaces, user-facing features
+- *Optional for*: Backend APIs, data processing, infrastructure, CLI tools, internal services
+
 ### **Requirements Artifacts** (`docs/requirements/`)
 - PRD(s) with Epic structure and user stories
 - Acceptance criteria and success metrics
@@ -104,7 +112,8 @@ Missing artifacts:
 Please complete previous workflow stages:
 1. Consultation (/consult)
 2. Requirements (auto-generated from consultation)
-3. Architecture (auto-generated from consultation + requirements)
+3. Design (/design) - Optional, required only for UI/frontend features
+4. Architecture (auto-generated from consultation + requirements + design if available)
 ```
 
 ## Comprehensive Context Analysis
@@ -127,9 +136,10 @@ From **requirements artifacts**:
 - **Story complexity** informing story point estimation
 
 ### Phase 3: Technical Implementation Context
-From **architecture documentation**:
+From **architecture and design documentation** (when available):
 - **Component structure** determining task organization
 - **Technology stack** defining implementation approaches
+- **UI component library** and design system integration requirements (for frontend features)
 - **Integration points** creating cross-Epic task dependencies
 - **Development patterns** standardizing task approaches
 
@@ -523,8 +533,37 @@ project-name/                   # or existing project directory
 - **New Technology Installation**: Always get latest setup documentation
 - **Framework Configuration**: Verify current best practices and configuration patterns
 - **Library Integration**: Get current API documentation and integration examples
+- **UI Component Libraries**: Get latest component documentation and design system setup
 - **Security Implementation**: Get latest security best practices and vulnerability mitigation
 - **Performance Optimization**: Get current performance recommendations and patterns
+
+### Design Implementation Task Categories (When Applicable)
+
+**Design System Setup Tasks** (for UI/frontend features):
+- Component library installation and configuration
+- Design token setup and CSS variable configuration
+- Typography and spacing system implementation
+- Color palette and theme configuration
+
+**UI Component Development Tasks** (for user-facing features):
+- Individual component implementation following design specs
+- Responsive layout implementation per design guidelines
+- Design system compliance validation
+- Component accessibility implementation
+
+**Design Integration Tasks** (for frontend applications):
+- Frontend framework alignment with design system
+- Design asset optimization and delivery
+- Cross-browser design consistency verification
+- Design-to-code handoff validation
+
+**Backend/API Task Categories** (no design requirements):
+- Database schema and migration tasks
+- API endpoint development and testing
+- Business logic implementation
+- Data processing and transformation tasks
+- Integration with external services
+- Security and authentication implementation
 
 ### Complexity-Responsive Context7 Usage
 
@@ -573,24 +612,50 @@ use context7 to get TailwindCSS component styling modern patterns
 use context7 to get Next.js App Router client component architecture
 ```
 
+**Design System Tasks**:
+```
+use context7 to get shadcn/ui component library setup and configuration
+use context7 to get Radix UI accessibility implementation guide
+use context7 to get TailwindCSS design system and custom component creation
+use context7 to get Storybook setup for component library documentation
+```
+
+**UI Component Tasks**:
+```
+use context7 to get responsive design implementation modern CSS patterns
+use context7 to get CSS Grid and Flexbox layout best practices
+use context7 to get web accessibility WCAG compliance implementation
+use context7 to get cross-browser CSS compatibility strategies
+```
+
 ## Architecture Reference Integration
 
 ### Task Context Enhancement
 
-**Each task MUST include specific architecture references**:
+**Each task MUST include specific architecture and design references**:
 
 1. **Architecture Section Mapping**:
    - Reference exact sections from architecture.md that apply to the task
    - Quote relevant code patterns that should be followed
    - Highlight integration points with other Epic components
 
-2. **Implementation Pattern Enforcement**:
+2. **Design Specification Mapping** (when applicable):
+   - Reference specific design documents from docs/design/ directory (if available)
+   - Quote relevant component specifications and design patterns (for UI features)
+   - Highlight UI/UX requirements and responsive design considerations (when relevant)
+
+3. **Implementation Pattern Enforcement**:
    ```markdown
-   ## Architecture Compliance Requirements
+   ## Architecture & Design Compliance Requirements
    **Follow These Patterns from architecture.md**:
    - Section 3.2: [Specific pattern name and description]
    - Component Integration: [How this task integrates with other components]
    - Data Flow: [How data flows through this task's implementation]
+   
+   **Follow These Design Specifications from docs/design/** (if applicable):
+   - Component Library: [Specific components and variants to use]
+   - Layout Patterns: [Responsive design and spacing requirements]
+   - Visual Design: [Colors, typography, and interaction patterns]
    ```
 
 3. **Cross-Epic Integration Context**:
@@ -602,7 +667,9 @@ use context7 to get Next.js App Router client component architecture
 
 **When implementing tasks, ensure:**
 - **References Architecture First**: Always consult the specific architecture.md sections before implementation
+- **Follows Design Specifications** (when applicable): Implement UI components according to design system guidelines
 - **Follows Established Patterns**: Use the code patterns and structures defined in architecture.md
+- **Maintains Design Consistency** (for UI features): Respect the component library choices and design patterns
 - **Maintains Integration Points**: Respect the Epic-to-component mapping and dependencies
 - **Implements Security Patterns**: Follow the security architecture requirements consistently
 

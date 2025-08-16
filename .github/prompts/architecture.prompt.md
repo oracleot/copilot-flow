@@ -9,9 +9,9 @@ Act as an experienced Software Architect with expertise in system design, techno
 
 # Task
 
-**Read and analyze artifacts from both `docs/consultation/` and `docs/requirements/` directories** to create complete **Architecture Documentation** in markdown format that will be saved as `docs/architecture.md`. This document will serve as the technical blueprint and reference guide for all future development work on the project.
+**Read and analyze artifacts from `docs/consultation/`, `docs/requirements/`, and `docs/design/` directories** to create complete **Architecture Documentation** in markdown format that will be saved as `docs/architecture.md`. This document will serve as the technical blueprint and reference guide for all future development work on the project.
 
-**Before beginning, use sequential thinking MCP to break down the architectural design process into manageable components, ensuring comprehensive coverage and logical progression through design decisions informed by the complete product context.**
+**Before beginning, use sequential thinking MCP to break down the architectural design process into manageable components, ensuring comprehensive coverage and logical progression through design decisions informed by the complete product context including UI/UX design specifications (when applicable).**
 
 ## Project Structure Validation (MANDATORY)
 
@@ -43,14 +43,14 @@ mkdir -p docs/research
 - **Target Directory**: docs/architecture.md (project root level documentation)
 - **Research Files**: docs/research/[technology]-research/ for Context7 findings
 - **Naming Convention**: Follow project documentation standards
-- **Organization Logic**: Architecture docs accessible to development teams
+- **Organization Logic**: Architecture docs accessible to development teams and align with design specifications
 
 ### Architecture Documentation Pattern
 ```markdown
 ## File Organization Plan:
 - **Architecture Document**: docs/architecture.md
 - **Research Documentation**: docs/research/[tech]-research/
-- **Context Integration**: Links to docs/consultation/ and docs/requirements/
+- **Context Integration**: Links to docs/consultation/, docs/requirements/, and docs/design/
 - **Development Access**: Architecture serves as central technical reference
 ```
 
@@ -123,13 +123,17 @@ docs/research/
 ### Required Artifacts
 - **Consultation Artifacts** (`docs/consultation/`): Business context, technical considerations
 - **Requirements Artifacts** (`docs/requirements/`): PRDs with Epic structure, user stories
+- **Design Artifacts** (`docs/design/`) [OPTIONAL]: UI component specifications, layout designs, design system guidelines
+  - *Required for*: Frontend applications, mobile apps, web interfaces, user-facing features
+  - *Optional for*: Backend APIs, data processing, infrastructure, CLI tools, internal services
 
-**If any artifacts are missing**, respond with:
+**If required artifacts are missing**, respond with:
 ```
 ❌ Missing Required Artifacts
 Cannot proceed with architecture design. Required artifacts not found.
 Missing: [List missing files]
 Please complete consultation and requirements phases first.
+[If UI/frontend features present]: Consider running /design for UI component specifications.
 ```
 
 ## Comprehensive Analysis Process
@@ -150,19 +154,26 @@ From **requirements artifacts**:
 - Data flow requirements between features
 - Integration points and external system needs
 
-### Phase 3: Technical Constraints Synthesis
-From **both artifact sets**:
+### Phase 3: Design Specifications Analysis (When Available)
+From **design artifacts** (if present for UI/frontend features):
+- UI component library selections and framework requirements
+- Frontend architecture needs and state management patterns
+- Responsive design requirements and build tool considerations
+- Design system integration with component hierarchy
+
+### Phase 4: Technical Constraints Synthesis
+From **all available artifact sets**:
 - Technology preferences and constraints
 - Technical dependencies between Epics
 - Scalability, security, and compliance needs
 - Infrastructure requirements
 
-### Phase 4: Architectural Decision Framework
-Based on **complete product context**:
-- Choose architectural patterns supporting all Epics
-- Select technology stack meeting constraints and Epic requirements
-- Design component structure supporting feature scalability
-- Plan deployment strategy matching organizational capabilities
+### Phase 5: Architectural Decision Framework
+Based on **complete product context including design specifications (when available)**:
+- Choose architectural patterns supporting all Epics and UI components (if applicable)
+- Select technology stack meeting constraints, Epic requirements, and design system needs (if UI features present)
+- Design component structure supporting feature scalability and design patterns (when relevant)
+- Plan deployment strategy matching organizational capabilities and design asset delivery (if needed)
 
 ## Architecture Document Structure
 
@@ -215,13 +226,14 @@ Based on **complete product context**:
 
 1. **Project Overview** - Business objectives, key features, target users, platform/deployment context
 2. **Requirements Summary** - Epic architecture map, cross-Epic dependencies, non-functional requirements, platform constraints
-3. **System Architecture** - High-level architecture, pattern rationale, technology stack, Epic-to-component mapping
-4. **Technical Specifications** - Data architecture, integration design, security architecture, performance considerations
-5. **Infrastructure & Deployment** - Deployment architecture, development environment, CI/CD pipeline, platform-specific considerations
-6. **Epic Implementation Strategy** - Development order, component reuse, integration points, scaling strategy
-7. **Development Guidelines** - Code organization, Epic development patterns, testing strategy, platform best practices
-8. **Operational Considerations** - Maintenance, scalability plan, risk assessment, platform evolution, future considerations
-9. **Architecture Evolution Framework** - Evolution checkpoints, versioning, controlled evolution process
+3. **Design Integration** (if applicable) - UI component library selection, frontend framework alignment, design system architecture, responsive design patterns
+4. **System Architecture** - High-level architecture, pattern rationale, technology stack, Epic-to-component mapping
+5. **Technical Specifications** - Data architecture, integration design, security architecture, performance considerations
+6. **Infrastructure & Deployment** - Deployment architecture, development environment, CI/CD pipeline, platform-specific considerations
+7. **Epic Implementation Strategy** - Development order, component reuse, integration points, scaling strategy
+8. **Development Guidelines** - Code organization, Epic development patterns, testing strategy, platform best practices
+9. **Operational Considerations** - Maintenance, scalability plan, risk assessment, platform evolution, future considerations
+10. **Architecture Evolution Framework** - Evolution checkpoints, versioning, controlled evolution process
 
 ## Code Organization & Project Structure Template
 
@@ -325,9 +337,10 @@ mkdir -p tests
 ## Quality Standards
 
 ### Artifact Integration Fidelity
-- **Complete Epic Support** - Architecture accommodates ALL identified Epics
+- **Complete Epic Support** - Architecture accommodates ALL identified Epics and UI components (when applicable)
 - **Constraint Compliance** - All consultation constraints respected in design decisions
 - **Requirements Traceability** - Every Epic requirement has architectural support
+- **Design System Integration** (when present) - UI component library and design patterns properly architected
 - **Context Preservation** - Business rationale maintained in technical decisions
 
 ### Technical Excellence
@@ -355,16 +368,18 @@ mkdir -p tests
 
 1. **Epic Coverage Validation** - Every Epic has architectural support
 2. **Consultation Constraint Verification** - All business/technical constraints addressed
-3. **Integration Coherence** - All Epic interaction points architecturally sound
-4. **Project Structure Completeness** - Code organization and file placement guidelines included
-5. **Implementation Readiness** - Architecture provides clear development guidance
-6. **Evolution Framework** - Clear process for architectural evolution established
+3. **Design System Integration** (if applicable) - UI component architecture properly planned
+4. **Integration Coherence** - All Epic interaction points architecturally sound
+5. **Project Structure Completeness** - Code organization and file placement guidelines included
+6. **Implementation Readiness** - Architecture provides clear development guidance
+7. **Evolution Framework** - Clear process for architectural evolution established
 
 ## Output Format
 
 **Save as `docs/architecture.md`** with comprehensive markdown formatting:
 - **Epic References** - Clear mapping between requirements and architectural decisions
 - **Consultation Citations** - Reference specific business decisions and constraints
+- **Design Integration** - Clear alignment between UI/UX specifications and technical architecture
 - **Implementation Guidance** - Concrete direction for development teams
 - **Visual Diagrams** - Text-based diagrams showing Epic-component relationships
 - **Evolution Framework** - Process for architectural change management
@@ -376,10 +391,11 @@ mkdir -p tests
 ### Technology Stack Selection
 ```markdown
 **Primary Platform**: [Technology] with [Framework]
-- *Rationale*: Aligns with team expertise and project requirements (from consultation)
-- *Epic Support*: Handles specific requirements for [Epic Name]
+- *Rationale*: Aligns with team expertise, project requirements, and design system needs (from consultation)
+- *Epic Support*: Handles specific requirements for [Epic Name] and UI component architecture
 - *Scale Alignment*: Supports projected usage patterns (consultation requirement)
 - *Platform Fit*: Matches deployment and operational constraints
+- *Design Integration*: Supports selected UI component library and design patterns
 - *Evolution Readiness*: Can adapt to growth requirements identified in consultation
 ```
 
@@ -428,4 +444,4 @@ mkdir -p tests
 
 ---
 
-This architecture stage automatically processes both consultation business context and requirements Epic structure to generate technically sound, business-aligned architecture documentation with built-in evolution framework, ready for Epic-based development planning that can adapt and grow with the product over time.
+This architecture stage automatically processes consultation business context, requirements Epic structure, and design specifications (when available) to generate technically sound, business-aligned architecture documentation with built-in evolution framework, ready for Epic-based development planning that can adapt and grow with the product over time while ensuring UI/UX design integration for user-facing features.
