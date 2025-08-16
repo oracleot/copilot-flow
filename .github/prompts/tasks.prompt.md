@@ -13,6 +13,28 @@ Act as an experienced Agile Technical Lead and Scrum Master with expertise in br
 
 **Use sequential thinking MCP to systematically process all artifacts and create a hierarchical task structure with proper Agile organization, story point estimation, and implementation-ready instructions.**
 
+## Complexity-Aware Task Generation
+
+**First, read the Project Complexity Assessment from consultation brief to determine task structure:**
+
+### Simple Feature → Streamlined Task Structure
+**When complexity = "Simple Feature":**
+- **Skip Epic/Story hierarchy** for single features
+- **Create flat task structure** focused on implementation
+- **Minimal documentation overhead**
+
+### Standard Product → Epic/Story/Task Hierarchy
+**When complexity = "Standard Product":**
+- **Full Epic/Story/Task structure** for comprehensive organization
+- **Epic-based development planning**
+- **Cross-Epic integration management**
+
+### Complex Platform → Enterprise Task Management
+**When complexity = "Complex Platform":**
+- **Advanced Epic dependencies** and integration planning
+- **Enterprise-grade QA integration**
+- **Comprehensive risk management** at task level
+
 ## Pre-Analysis: Complete Artifact Validation
 
 **Before proceeding, validate that the complete workflow context exists:**
@@ -78,10 +100,23 @@ From **combined context**:
 - **Infrastructure dependencies** requiring foundational tasks first
 - **Risk mitigation** through incremental delivery approach
 
-## Hierarchical Task Structure
+## Task Structure by Complexity
 
-Create the following directory structure with individual task files:
+### Simple Feature Task Structure
 
+**For Simple Features, create:**
+```
+docs/tasks/
+├── feature-[name]/
+│   ├── README.md (Feature overview)
+│   ├── task-001-implementation.md
+│   ├── task-002-testing.md
+│   └── task-003-deployment.md
+```
+
+### Standard/Complex Product Task Structure
+
+**For Standard/Complex Products, create:**
 ```
 docs/tasks/
 ├── epic-001-[epic-name]/
@@ -98,6 +133,71 @@ docs/tasks/
 │   └── README.md
 └── epic-index.md (Master epic overview)
 ```
+
+## Task Templates by Complexity
+
+### Simple Feature Task Template
+
+```markdown
+# Task: [Feature Name] Implementation
+
+**Complexity**: Simple Feature
+**Total Effort**: [2-8 hours]
+**Skills Required**: [Specific skills needed]
+
+## Feature Context
+[Brief description linking to consultation requirements]
+
+## Implementation Steps
+[Streamlined implementation - no Epic complexity]
+
+### Context7 Documentation Requirements (Lightweight)
+**⚠️ For unfamiliar technologies only:**
+- [Specific integration pattern documentation if needed]
+- [Security best practices if handling sensitive data]
+
+### Prerequisites
+1. **Quick Documentation Check**:
+   - [ ] Review existing codebase patterns for similar features
+   - [ ] Confirm integration points with existing system
+
+### Step-by-Step Implementation
+1. **[Step 1]**: [Specific implementation action]
+   - Expected Outcome: [What this step should achieve]
+
+2. **[Step 2]**: [Next implementation action]
+   - Expected Outcome: [What this step should achieve]
+
+## Architecture Compliance
+**Follow Existing Patterns**: [Reference existing system patterns from architecture]
+**Integration Requirements**: [How to integrate with current system per architecture]
+
+## Simple Testing Requirements
+- [ ] Feature functionality works as specified
+- [ ] No regression in existing functionality
+- [ ] Basic security validation
+
+## Acceptance Criteria
+- [ ] [Specific technical deliverable]
+- [ ] [Integration with existing system verified]
+- [ ] [Performance meets basic requirements]
+
+## Dependencies
+**Blocked By**: [Any existing system components that must be updated first]
+**Integration Points**: [Existing system touchpoints]
+
+## Definition of Done Checklist
+- [ ] Implementation follows existing codebase patterns
+- [ ] Basic testing completed (feature works, no regressions)
+- [ ] Integration with existing system verified
+- [ ] Code review completed
+- [ ] Deployment ready
+
+---
+*Lightweight task appropriate for simple feature development*
+```
+
+### Standard/Complex Epic/Story/Task Templates
 
 ### Epic Directory Structure (`epic-XXX-[name]/README.md`)
 
@@ -144,6 +244,19 @@ docs/tasks/
 **Recommended Sprint Breakdown**: [How to organize stories across sprints]
 **Parallel Development Opportunities**: [Tasks that can be done simultaneously]
 **Critical Path**: [Tasks that block other Epic development]
+
+## QA Integration Requirements
+
+### Epic-Level QA Checkpoints
+- [ ] **Epic Kickoff QA Review**: Test strategy alignment with Epic scope
+- [ ] **Mid-Epic QA Check**: Integration testing across completed stories
+- [ ] **Epic Completion QA**: End-to-end testing and acceptance criteria validation
+- [ ] **Cross-Epic Integration QA**: Verify Epic interactions don't break existing functionality
+
+### Epic QA Owner
+**Designated QA Lead**: [Suggested QA team member based on Epic complexity]
+**Testing Strategy**: [Unit/Integration/E2E requirements specific to Epic]
+**Risk Assessment**: [QA-specific risks and mitigation strategies]
 ```
 
 ### Story Directory Structure (`story-XXX/README.md`)
@@ -164,6 +277,7 @@ docs/tasks/
 - [ ] [Integration tests for API endpoints]
 - [ ] [Documentation updated]
 - [ ] [Architecture compliance verified]
+- [ ] [QA review completed]
 
 ## Architecture Context for This Story
 **Relevant Architecture Headers**: 
@@ -175,6 +289,11 @@ docs/tasks/
 // Specific code patterns from architecture.md
 // that apply to this story's implementation
 ```
+
+## QA Integration
+**QA Owner**: [Designated QA team member]
+**Testing Strategy**: [Unit/Integration/E2E requirements specific to story]
+**Acceptance Testing**: [Business stakeholder validation requirements]
 
 ## Task Overview
 - **Task 001**: [Task name and brief description]
@@ -262,13 +381,14 @@ docs/tasks/
 # Implement patterns specified in architecture document
 ```
 
-## Acceptance Criteria
-- [ ] [Specific technical deliverable]
-- [ ] [Integration requirement with architecture]
-- [ ] [Testing requirement]
-- [ ] [Documentation requirement]
+## QA Integration Requirements
 
-## Testing Requirements
+### Task-Level QA
+**QA Review Required**: [Yes/No based on task complexity]
+**QA Criteria**: [Specific quality gates for this task]
+**Integration Impact**: [What other Epics might be affected]
+
+### Testing Requirements
 **Unit Tests**:
 - [ ] [Specific test case for core functionality]
 - [ ] [Edge case testing requirement]
@@ -276,6 +396,12 @@ docs/tasks/
 **Integration Tests**:
 - [ ] [API endpoint testing]
 - [ ] [Cross-component integration verification]
+
+## Acceptance Criteria
+- [ ] [Specific technical deliverable]
+- [ ] [Integration requirement with architecture]
+- [ ] [Testing requirement]
+- [ ] [Documentation requirement]
 
 ## Dependencies
 **Blocked By**: [Other tasks that must complete first]
@@ -290,6 +416,7 @@ docs/tasks/
 - [ ] Integration tests pass for all affected endpoints
 - [ ] Documentation updated with implementation details
 - [ ] Architecture compliance verified (follows specified patterns)
+- [ ] QA review completed (if required)
 ```
 
 ## Context7 Integration Guidelines
@@ -302,6 +429,23 @@ docs/tasks/
 - **Library Integration**: Get current API documentation and integration examples
 - **Security Implementation**: Get latest security best practices and vulnerability mitigation
 - **Performance Optimization**: Get current performance recommendations and patterns
+
+### Complexity-Responsive Context7 Usage
+
+#### Simple Tasks: Minimal Context7
+- Only use Context7 for unfamiliar technologies
+- Focus on specific integration patterns
+- Quick documentation lookup only
+
+#### Medium Tasks: Targeted Context7
+- Research specific patterns needed
+- Validate current best practices
+- Document findings for reuse
+
+#### Complex Tasks: Comprehensive Context7
+- Full technology stack research
+- Architecture pattern validation
+- Comprehensive documentation updates
 
 ### Context7 Query Patterns for Common Scenarios
 
@@ -360,7 +504,7 @@ use context7 to get Next.js App Router client component architecture
 
 ### Architecture-Guided Development
 
-**When Copilot implements tasks, ensure it**:
+**When implementing tasks, ensure:**
 - **References Architecture First**: Always consult the specific architecture.md sections before implementation
 - **Follows Established Patterns**: Use the code patterns and structures defined in architecture.md
 - **Maintains Integration Points**: Respect the Epic-to-component mapping and dependencies
@@ -370,7 +514,17 @@ use context7 to get Next.js App Router client component architecture
 
 **Create hierarchical directory structure in `docs/tasks/`:**
 
-### Directory Naming Convention:
+### Simple Feature Directory Structure:
+```
+docs/tasks/
+├── feature-[name]/
+│   ├── README.md (Feature overview with architecture references)
+│   ├── task-001-implementation.md
+│   ├── task-002-testing.md
+│   └── task-003-deployment.md
+```
+
+### Standard/Complex Product Directory Structure:
 ```
 docs/tasks/
 ├── epic-001-user-authentication/
@@ -509,6 +663,12 @@ PostgreSQL installation setup guide. use context7
 - **Integration Clarity**: How task fits into overall architecture is explicit
 - **Component Mapping**: Clear mapping between task deliverables and architecture components
 
+### QA Integration Standards
+- **Epic-level QA checkpoints**: Clear QA integration at Epic boundaries
+- **Story-level QA ownership**: Designated QA leads for complex stories
+- **Task-level QA criteria**: Quality gates appropriate to task complexity
+- **Cross-Epic integration testing**: QA verification of Epic interactions
+
 ## Example Task File
 
 ```markdown
@@ -570,6 +730,11 @@ GDPR database design compliance. use context7
    - Implement Context7 MCP GDPR database patterns
    - Follow "Security Architecture > Data Protection" requirements
    - Add audit logging per "Infrastructure & Deployment > Monitoring & Logging"
+
+## QA Integration Requirements
+**QA Review Required**: Yes (database schema impacts multiple Epics)
+**QA Criteria**: Schema validation, multi-tenant isolation verification, GDPR compliance check
+**Integration Impact**: User Authentication, Profile Management, and Learning Analytics Epics
 
 ## Acceptance Criteria
 - [ ] Database models match architecture.md Profile Data Store design
@@ -639,6 +804,13 @@ GDPR database design compliance. use context7
 3. **Architecture Risk Assessment**: Identify tasks requiring architecture pattern clarification
 4. **Context7 Documentation Planning**: Ensure team understands Context7 usage requirements
 
+### For QA Integration
+
+1. **Epic QA Planning**: Assign QA leads based on Epic complexity and risk
+2. **Story QA Strategy**: Define testing approach for each story based on business impact
+3. **Task QA Criteria**: Set quality gates appropriate to task complexity
+4. **Cross-Epic Testing**: Plan integration testing across Epic boundaries
+
 ---
 
-**This updated prompt structure creates implementation-ready, granular task files that integrate current documentation (via Context7) with established architecture patterns, enabling efficient development execution while maintaining architectural consistency.**
+**This updated task generation structure creates implementation-ready, granular task files that integrate current documentation (via Context7) with established architecture patterns, includes comprehensive QA integration, and enables efficient development execution while maintaining architectural consistency across all complexity levels.**
