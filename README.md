@@ -1,5 +1,7 @@
 # CopilotFlow
 
+> 🚀 **Looking for the latest?** This workflow has evolved into [Spec Flow](https://github.com/oracleot/spec-flow) — a streamlined, spec-first toolkit built on GitHub's Spec Kit. Check it out for improved prompts, memory files, and a leaner workflow.
+
 A comprehensive GitHub Copilot workflow system that guides you from initial product idea to ready-to-implement development tasks. This system ensures consistent, high-quality product development artifacts through structured AI-assisted workflows.
 
 ## 🎯 What This Does
